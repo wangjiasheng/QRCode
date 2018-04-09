@@ -1,3 +1,1 @@
-include ':qrlib'
-
-
+include ':app', ':qrlib'

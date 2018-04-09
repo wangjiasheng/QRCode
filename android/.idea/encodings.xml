@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/qrlib/.gitignore" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/qrlib/build.gradle" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/qrlib/proguard-rules.pro" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/qrlib/src/androidTest/java/com/example/qrlib/ExampleInstrumentedTest.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/qrlib/src/test/java/com/example/qrlib/ExampleUnitTest.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/settings.gradle" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/qrlib" charset="GBK" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
