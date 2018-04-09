@@ -109,28 +109,16 @@ public final class ViewfinderView extends View {
     int leny= frame.right-frame.left;
 
     if(width>height){
-      if (resultBitmap != null) {
-        // Draw the opaque result bitmap over the scanning rectangle
-        paint.setAlpha(CURRENT_POINT_OPACITY);
-        canvas.drawBitmap(resultBitmap, null, frame, paint);
-      } else {
-
-        // Draw a red "laser scanner" line through the middle to show decoding is active
-        paint.setColor(laserColor);
-        paint.setAlpha(SCANNER_ALPHA[scannerAlpha]);
-        scannerAlpha = (scannerAlpha + 1) % SCANNER_ALPHA.length;
-        
       int jianzhen=(leny-lenx)/2;
-
       if (scanLineTop == 0) {
         scanLineTop = frame.top;
       }
-      if (scanLineTop >= frame.bottom-40) {
+      if (scanLineTop >= frame.bottom-2*SCAN_VELOCITY) {
         scanLineTop = frame.top;
       } else {
         scanLineTop += SCAN_VELOCITY;
       }
-      Rect scanRect = new Rect(frame.left+2+jianzhen, scanLineTop, frame.right-1-jianzhen, scanLineTop + 10);
+      Rect scanRect = new Rect(frame.left+2+jianzhen, scanLineTop, frame.right-1-jianzhen, scanLineTop + 8);
       canvas.drawRect(scanRect,paint);
 
       canvas.drawBitmap(reactTopLeft,frame.left+jianzhen,frame.top,paint);
@@ -143,7 +131,42 @@ public final class ViewfinderView extends View {
       canvas.drawRect(frame.right + 1-jianzhen, frame.top, width, frame.bottom + 1, paint);
       canvas.drawRect(0, frame.bottom + 1, width, height, paint);
     }
+    else {
+      int jianzhen=(lenx-leny)/2;
 
+      if (scanLineTop == 0) {
+        scanLineTop = frame.top+jianzhen;
+      }
+      if (scanLineTop >= frame.bottom-jianzhen-SCAN_VELOCITY*2) {
+        scanLineTop = frame.top+jianzhen;
+      } else {
+        scanLineTop += SCAN_VELOCITY;
+      }
+      Rect scanRect = new Rect(frame.left+2, scanLineTop, frame.right-1, scanLineTop + 8);
+      canvas.drawRect(scanRect,paint);
+
+      canvas.drawBitmap(reactTopLeft,frame.left,frame.top+jianzhen,paint);
+      canvas.drawBitmap(reactBottomLeft,frame.left,frame.bottom-reactBottomLeft.getHeight()-jianzhen,paint);
+      canvas.drawBitmap(reactTopRight,frame.right-reactTopRight.getWidth(),frame.top+jianzhen,paint);
+      canvas.drawBitmap(reactBootomRight,frame.right-reactBootomRight.getWidth(),frame.bottom-reactBootomRight.getHeight()-jianzhen,paint);
+
+      canvas.drawRect(0, 0, width, frame.top+jianzhen, paint);
+      canvas.drawRect(0, frame.top+jianzhen, frame.left, frame.bottom + 1-jianzhen, paint);
+      canvas.drawRect(frame.right + 1, frame.top+jianzhen, width, frame.bottom + 1-jianzhen, paint);
+      canvas.drawRect(0, frame.bottom + 1-jianzhen, width, height, paint);
+    }
+
+
+    if (resultBitmap != null) {
+      // Draw the opaque result bitmap over the scanning rectangle
+      paint.setAlpha(CURRENT_POINT_OPACITY);
+      canvas.drawBitmap(resultBitmap, null, frame, paint);
+    } else {
+
+      // Draw a red "laser scanner" line through the middle to show decoding is active
+      paint.setColor(laserColor);
+      paint.setAlpha(SCANNER_ALPHA[scannerAlpha]);
+      scannerAlpha = (scannerAlpha + 1) % SCANNER_ALPHA.length;
      // int middle = frame.height() / 2 + frame.top;
       //canvas.drawRect(frame.left + 2, middle - 1, frame.right - 1, middle + 2, paint);  //draw mid
       
