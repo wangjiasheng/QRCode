@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/kaixinlian/wjs/com/CaptureActivity.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/qrlib" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/qrlib/src/main/res/drawable/reactleftbottom.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/qrlib/src/main/res/drawable/reactlefttop.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/qrlib/src/main/res/drawable/reactrightbottom.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/qrlib/src/main/res/drawable/reactrighttop.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/qrlib/src/main/res/drawable/share_via_barcode.png" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
